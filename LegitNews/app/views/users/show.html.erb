@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Articles:</strong>
+  <table>
+    <thead>
+    <tr><tr></tr>
+    </tr>
+    </thead>
+    <tbody>
+    <% @user.articles.each do |a| %>
+    <tr>
+      <td><%= a.title  %></td>
+      <td><%= link_to 'Article', a %></td>
+    </tr>
+
+    <% end %>
+
+    </tbody>
+  </table>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <table>
+    <thead>
+     <tr></tr>
+    </thead>
+    <tbody>
+      <% @user.comments.each do |c| %>
+      <tr>
+      <td><%= c.message  %></td>
+    </tr>
+
+  <% end %>
+
+  </tbody>
+</table>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
